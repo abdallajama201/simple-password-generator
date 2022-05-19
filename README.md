@@ -14,7 +14,7 @@ Users can generate passwords to replace their current ones from time to time. An
  
 ## Usage
  
-The website is live on the open web and can be accessed at https://abdallajama201.github.io/Challenge-03-JavaScript//
+The website is live on the open web and can be accessed at https://abdallajama201.github.io/Challenge-03-JavaScript/
 
 When a user presses the red generate password button. They are prompted with a set of options to specify their password by length and character types to include. When valid inputs are given the password is printed in the box containing the phrase "Your Secure Password". If the user presses the red button again the process starts over and the new password replaces the previous one.
  
