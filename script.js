@@ -8,8 +8,6 @@ let specialChar = ['!','\"','#','$','%','&','\'','(',')','*','+',',','-','.','/'
 function lengthChecker() {
   let result = prompt("How many characters do you want in the password?\nThe password must be at least 8 characters and no mre than 128");
   result = parseInt(result);
-  console.log(result);
-
   if(result < 8 || result > 128 || isNaN(result)) {
     alert("An invalid length has been submitted")
     result = lengthChecker();
@@ -39,6 +37,41 @@ function typeChecker() {
 
 typeChecker();
 
+// Checks for each type of character that has been selected
+// Adds the array of that character type to an array of the selected types
+let selectedTypes = [];
+if(useNumber) {
+  selectedTypes.push(numbers);
+}
+if(uselower) {
+  selectedTypes.push(lowerLetters);
+}
+if(useUpper) {
+  selectedTypes.push(upperLetters);
+}
+if(useSpecial) {
+  selectedTypes.push(specialChar);
+}
+
+let password = '';
+
+// Loops for the length of the desired password less the number of types selected
+// Selects a random type and random character from that type
+// Adds character to end of password
+for(let i = 0; i < passLength - selectedTypes.length; i++) {
+  let type = selectedTypes[Math.floor(Math.random() * selectedTypes.length)];
+  let character = type[Math.floor(Math.random() * type.length)]
+  password = password + character;
+}
+
+// Loops over The selected types
+// Adds one random character of each type to the password 
+selectedTypes.forEach(element => {
+  let character = element[Math.floor(Math.random() * element.length)];
+  password = password + character;
+});
+
+console.log(password);
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
